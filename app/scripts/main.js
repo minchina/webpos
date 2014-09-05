@@ -1,1 +1,3 @@
-console.log('\'Allo \'Allo!');
+$(document).ready(function () {
+    localStorage.getItem('haveItems') || (localStorage.haveItems = JSON.stringify({}));
+});
