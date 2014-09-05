@@ -58,6 +58,7 @@
 
     <div class="panel panel-default">
         <div class="panel-heading"><h4>购物清单</h4></div>
+        <span id="pay_date"></span>
         <div class="panel-body">
             <table class="table table-bordered">
                 <thead>
@@ -76,8 +77,25 @@
             </table>
         </div>
 
+        <div class="panel-heading"><h4>赠送商品</h4></div>
+        <div class="panel-body">
+            <table class="table table-bordered">
+                <thead>
+                <tr>
+                    <th>分类</th>
+                    <th>名称</th>
+                    <th>数量</th>
+                </tr>
+                </thead>
+                <tbody class="gift-body">
+                </tbody>
+
+            </table>
+        </div>
+
         <div class="side-space text-right">
             <p>总计：<span id="total">0.00元</span></p>
+            <p>节约：<span id="gift_prices">0.00元</span></p>
             <a class="btn btn-primary vertical-space" href="payment.html">确认</a>
         </div>
     </div>

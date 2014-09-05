@@ -22,9 +22,9 @@ Item.display_small_count=function(goods,good_name){
     }
     return good.price * (good.count-good.savecount)+'元'+'(原价：'+good.price*good.count+'元)';
 };
-Item.total_price=function(){
-    var total_price = 0;
-    var Goods = count.change_format();
-    _.each(Goods,function(good){total_price += (good.price*good.count)});
-    return total_price.toFixed(2)+"元";
+
+Item.get_gift=function(){
+    var buy_goods = count.get_no_null_messages();
+    return _.filter(buy_goods,function(good){return good.savecount !=0});
+
 };

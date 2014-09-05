@@ -1,5 +1,5 @@
 $(document).ready(function(){
-    $('#total').text(Item.total_price());
+    $('#total').text(count.total_price());
     var Goods = count.change_format();
     var target = $(".item-body");
     _(Goods).each(function (Good) {
@@ -60,6 +60,6 @@ function refresh(good,good_name){
     get_total_count();
     //价格自动更新
     good.find('.small_total').text(Item.display_small_count(Goods,good_name));
-    $('#total').text(Item.total_price());
+    $('#total').text(count.total_price());
 
 }
