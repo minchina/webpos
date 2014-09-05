@@ -18,3 +18,10 @@ function loadPromotions() {
         ])
     ]
 }
+
+
+function get_total_count(){
+    var count = $('#count');
+    var total_count = parseInt(localStorage.getItem('totalCount'));
+    count.text(total_count);
+}
