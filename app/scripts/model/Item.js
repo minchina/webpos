@@ -16,9 +16,14 @@ Item.get_promotion=function(barcode,count){
 
 Item.display_small_count=function(goods,good_name){
     var good = _.find(goods,function(good){return good.name==good_name});
-    if(good.savecount==0){
+    try{
+        var test = good.savecount;
+    }
+    catch(err){
+        return 0;
+    }
+    if(test==0){
         return good.price*good.count+'元';
-
     }
     return good.price * (good.count-good.savecount)+'元'+'(原价：'+good.price*good.count+'元)';
 };

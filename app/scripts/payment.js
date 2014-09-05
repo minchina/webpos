@@ -29,6 +29,10 @@ $(document).ready(function(){
     $('#total').text(count.total_price());
     $('#gift_prices').text(count.gift_price());
 
+    $('#confirm').on('click', function () {
+        localStorage.clear();
+    });
+
 
 });
 

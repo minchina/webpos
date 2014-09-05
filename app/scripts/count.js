@@ -1,4 +1,7 @@
 $(document).ready(function(){
+//    if(!parseInt(localStorage.getItem('totalCount'))){
+//        window.location.assign("../views/item.html");
+//    }
     $('#total').text(count.total_price());
     var Goods = count.change_format();
     var target = $(".item-body");
@@ -15,7 +18,6 @@ $(document).ready(function(){
         target.append(text);
     });
 
-
     $('.item-add').on('click', function () {
         var good = $(this).closest('.good_body');
         var good_name = $(this).closest('.good_body').find(".good_name").text();
@@ -28,7 +30,10 @@ $(document).ready(function(){
     $('.item-minus').on('click', function () {
         var good = $(this).closest('.good_body');
         var good_name = $(this).closest('.good_body').find(".good_name").text();
-        update_message("plus",good_name);
+        if(good.find(".item-count").text()==0){
+            return ;
+        }
+        update_message("minus",good_name);
         var itemSum = $(this).closest('.good_body').find('.item-count');
         itemSum.text(parseInt(itemSum.text())-1);
         refresh(good,good_name);
@@ -45,9 +50,12 @@ function update_message(add_minus,good_name){
         _.find(haveItems,function(item){return item.name==good_name}).count++;
         total_count++;
     }
-    else{
+    if(add_minus=="minus"){
         _.find(haveItems,function(item){return item.name==good_name}).count--;
         total_count--;
+    }
+    if(total_count==0){
+        window.location.assign("../views/item.html");
     }
     _.find(haveItems,function(item){return item.name==good_name}).savecount=Item.get_promotion(GoodBarcode,_.find(haveItems,function(item){return item.name==good_name}).count) || 0;
     localStorage.haveItems = JSON.stringify(haveItems);
