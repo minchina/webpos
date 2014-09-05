@@ -12,6 +12,7 @@ $(document).ready(function () {
                           </tr>');
         $('#item-table').append(listItem);
     });
+
     $('.list-item').on('click', 'button', function () {
         var count = $('#count');
         var total_count = parseInt(localStorage.getItem('totalCount'));
@@ -21,11 +22,10 @@ $(document).ready(function () {
 
         var haveItems = JSON.parse(localStorage.getItem('haveItems'));
         var GoodBarcode = $(this).closest('.list-item').data('barcode');
-        var GoodName = $(this).closest('.list-item').find('.item-name').text();
-        console.log(haveItems);
-        haveItems[GoodBarcode] = _.where(items,{name:GoodName});
-        haveItems[GoodBarcode].count++;
-        localStorage.haveItems = JSON.stringify(haveItems);
+        _.find(items,function(item){return item.barcode==GoodBarcode}).count++;
+        console.log(_.find(items,function(item){return item.barcode==GoodBarcode}));
+        _.find(items,function(item){return item.barcode==GoodBarcode}).savecount=Item.get_promotion(GoodBarcode,_.find(items,function(item){return item.barcode==GoodBarcode}).count) || 0;
+        localStorage.haveItems = JSON.stringify(items);
 
     });
 });

@@ -70,16 +70,24 @@
                     <th >小计</th>
                 </tr>
                 </thead>
-                <tbody>
-                <tr>
-                    <td>1</td>
-                    <td>Mark</td>
-                    <td>Otto</td>
-                    <td>@mdo</td>
-                </tr>
+                <tbody class="item-body">
+                <!--<tr>-->
+                    <!--<td>1</td>-->
+                    <!--<td>Mark</td>-->
+                    <!--<td>Otto</td>-->
+                    <!--<td>@mdo</td>-->
+                    <!--<td>@mdo</td>-->
+                    <!--<td>@mdo</td>-->
+                <!--</tr>-->
                 </tbody>
 
             </table>
+        </div>
+
+        <div class="side-space text-right">
+            <p>总计：<span id="total">0.00元</span></p>
+            <p>节省：<span id="save">0.00元</span></p>
+            <a class="btn btn-primary vertical-space" href="payment.html">付款</a>
         </div>
     </div>
 </div>
@@ -87,6 +95,7 @@
 
 <!-- build:js scripts/vendor.js -->
 <!-- bower:js -->
+<script src="../bower_components/underscore/underscore.js"></script>
 <script src="../bower_components/jquery/dist/jquery.js"></script>
 <!-- endbower -->
 <!-- endbuild -->
@@ -125,7 +134,12 @@
 <!-- endbuild -->
 
 <!-- build:js({app,.tmp}) scripts/main.js -->
-<script src="scripts/main.js"></script>
+<script src="../scripts/main.js"></script>
+<script src="../scripts/fixtures.js"></script>
+<script src="../scripts/model/Item.js"></script>
+<script src="../scripts/model/promotion.js"></script>
+<script src="../scripts/count.js"></script>
+<script src="../scripts/model/orderCount.js"></script>
 <!-- endbuild -->
 </body>
 </html>
