@@ -2,14 +2,7 @@ function Count(){
 
 }
 count.change_format=function(){
-    var origin_messages = count.get_no_null_messages();
-    console.log(origin_messages);
-//    var result = _.groupBy(origin_messages,function(obj){return obj.type});
-//    console.log(result);
-    return origin_messages;
-
-
-
+    return count.get_no_null_messages();
 };
 
 count.get_no_null_messages=function(){
