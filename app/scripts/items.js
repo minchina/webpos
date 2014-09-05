@@ -23,7 +23,6 @@ $(document).ready(function () {
         var haveItems = JSON.parse(localStorage.getItem('haveItems'));
         var GoodBarcode = $(this).closest('.list-item').data('barcode');
         _.find(items,function(item){return item.barcode==GoodBarcode}).count++;
-        console.log(_.find(items,function(item){return item.barcode==GoodBarcode}));
         _.find(items,function(item){return item.barcode==GoodBarcode}).savecount=Item.get_promotion(GoodBarcode,_.find(items,function(item){return item.barcode==GoodBarcode}).count) || 0;
         localStorage.haveItems = JSON.stringify(items);
 

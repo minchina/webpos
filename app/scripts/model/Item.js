@@ -14,8 +14,8 @@ Item.get_promotion=function(barcode,count){
     }
 };
 
-Item.display_small_count=function(goods,good_barcode){
-    var good = _.find(goods,function(good){return good.barcode==good_barcode});
+Item.display_small_count=function(goods,good_name){
+    var good = _.find(goods,function(good){return good.name==good_name});
     if(good.savecount==0){
         return good.price*good.count+'元';
 
